@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --color-surface:           #080e1c;
+  --color-surface-2:         #0f1829;
+  --color-surface-card:      rgba(255,255,255,0.06);
+  --color-border:            rgba(255,255,255,0.08);
+  --color-primary:           #ffffff;
+  --color-secondary:         #8fa3c4;
+  --color-accent:            #5b9cf6;
+  --color-accent-warm:       #f6a35b;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #080e1c;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 99px; }
+
+@keyframes shimmer {
+  0%   { background-position: -700px 0; }
+  100% { background-position:  700px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 700px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: 12px;
+}
+
+/* ☀️ CLEAR */
+@keyframes sun-breathe {
+  0%, 100% { transform: scale(1);    opacity: .55; }
+  50%       { transform: scale(1.18); opacity: .80; }
+}
+@keyframes sun-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-sun-bloom {
+  position: absolute;
+  top: -10%; right: -8%;
+  width: 600px; height: 600px;
+  pointer-events: none;
+}
+.animate-sun-bloom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 58% 38%,
+    rgba(255,245,160,.90) 0%,
+    rgba(255,195,55,.50)  25%,
+    rgba(255,140,20,.20)  50%,
+    transparent 68%
+  );
+  filter: blur(48px);
+  animation: sun-breathe 8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+.animate-sun-bloom::after {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,   rgba(255,220,90,.14) 12deg,
+    transparent 24deg,  rgba(255,220,90,.10) 36deg,
+    transparent 48deg,  rgba(255,220,90,.13) 60deg,
+    transparent 72deg,  rgba(255,220,90,.09) 84deg,
+    transparent 96deg,  rgba(255,220,90,.12) 108deg,
+    transparent 120deg, rgba(255,220,90,.10) 132deg,
+    transparent 144deg, rgba(255,220,90,.14) 156deg,
+    transparent 168deg, rgba(255,220,90,.09) 180deg,
+    transparent 192deg, rgba(255,220,90,.12) 204deg,
+    transparent 216deg, rgba(255,220,90,.10) 228deg,
+    transparent 240deg, rgba(255,220,90,.13) 252deg,
+    transparent 264deg, rgba(255,220,90,.09) 276deg,
+    transparent 288deg, rgba(255,220,90,.11) 300deg,
+    transparent 312deg, rgba(255,220,90,.10) 324deg,
+    transparent 336deg, rgba(255,220,90,.12) 348deg,
+    transparent 360deg
+  );
+  filter: blur(6px);
+  animation: sun-rotate 30s linear infinite;
+  mix-blend-mode: screen;
+  border-radius: 50%;
+}
+
+/* ☁️ CLOUDS */
+@keyframes cloud-drift {
+  0%   { transform: translate(-15%, -8%) scale(1.4); }
+  100% { transform: translate(8%, 8%)    scale(1.6); }
+}
+.cloud-layer {
+  position: absolute;
+  inset: -25%;
+  background-image:
+    radial-gradient(circle at 28% 38%, rgba(255,255,255,.32) 0%, transparent 42%),
+    radial-gradient(circle at 68% 62%, rgba(255,255,255,.22) 0%, transparent 52%),
+    radial-gradient(circle at 50% 50%, rgba(200,215,240,.15) 0%, transparent 60%);
+  filter: blur(38px);
+  animation: cloud-drift 24s alternate infinite ease-in-out;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* 🌧️ LLUVIA FOTOGRÁFICA (Texture-Based) */
+@keyframes rain-fall-motion {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+.rain-container {
+  position: absolute;
+  inset: -100% 0; /* Más alto para que no se vea el corte */
+  z-index: 15;
+  pointer-events: none;
+  /* Usamos ruido real para evitar las bandas metálicas */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Grain_Noise.png');
+  background-repeat: repeat;
+  /* El SECOTO: Estiramos el ancho y el alto de forma desigual */
+  background-size: 150px 1800px; 
+  animation: rain-fall-motion 0.5s linear infinite;
+  opacity: 0.25;
+  mix-blend-mode: screen;
+  filter: contrast(150%) brightness(120%);
+}
+
+/* ⛈️ STORM */
+@keyframes lightning {
+  0%, 92%, 100% { background-color: transparent; }
+  93%  { background-color: rgba(255,255,255,.65); }
+  94%  { background-color: transparent; }
+  95%  { background-color: rgba(210,225,255,.80); }
+  97%  { background-color: transparent; }
+}
+.animate-lightning {
+  position: absolute;
+  inset: 0;
+  animation: lightning 4.5s infinite;
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* ❄️ SNOW */
+@keyframes snow-fall {
+  0%   { transform: translateY(-10vh) translateX(0)    rotate(0deg);   opacity: 0; }
+  10%  { opacity: .9; }
+  50%  { transform: translateY(50vh)  translateX(12px) rotate(180deg); }
+  90%  { opacity: .7; }
+  100% { transform: translateY(108vh) translateX(-8px) rotate(360deg); opacity: 0; }
+}
+.snow-particle {
+  position: absolute;
+  top: -10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 0 4px rgba(180,220,255,.6);
+  animation: snow-fall ease-in-out infinite;
+}
+
+/* 🌫️ FOG */
+@keyframes fog-drift {
+  0%   { transform: translateX(-6%) scaleY(1);    opacity: .38; }
+  50%  { transform: translateX( 4%) scaleY(1.06); opacity: .55; }
+  100% { transform: translateX(-6%) scaleY(1);    opacity: .38; }
+}
+.fog-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(190,200,220,.40) 0%,
+    rgba(160,175,200,.20) 50%,
+    rgba(130,150,180,.10) 100%
+  );
+  filter: blur(22px);
+  animation: fog-drift 14s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* GLASS CARD */
+.glass-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.09);
+}
+
+/* LEAFLET */
+.leaflet-container {
+  border-radius: 1.5rem;
+  background: #0f1829 !important;
+}
+.leaflet-tile-pane {
+  filter: brightness(0.75) saturate(0.6) hue-rotate(200deg);
+}
