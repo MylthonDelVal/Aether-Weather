@@ -75,7 +75,7 @@ El proyecto incluye pruebas unitarias para garantizar estabilidad y calidad.
 npm test
 ```
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 - **Frontend:** React 19, Tailwind CSS v4, Vite.
 - **State Management:** Zustand.
 - **Testing:** Vitest & React Testing Library.
