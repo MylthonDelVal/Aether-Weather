@@ -9,7 +9,6 @@ const TRANSLATIONS = {
 const DAYS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
 export function DailyForecast({ forecast, unit, getTemp }) {
-  // Group by day — take noon entry (12:00) or first available per day
   const days = {};
   forecast.forEach(item => {
     const date = new Date(item.dt * 1000);

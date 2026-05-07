@@ -121,13 +121,11 @@ body {
 
 .rain-container {
   position: absolute;
-  inset: -100% 0; /* Más alto para que no se vea el corte */
+  inset: -100% 0; 
   z-index: 15;
   pointer-events: none;
-  /* Usamos ruido real para evitar las bandas metálicas */
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Grain_Noise.png');
   background-repeat: repeat;
-  /* El SECOTO: Estiramos el ancho y el alto de forma desigual */
   background-size: 150px 1800px; 
   animation: rain-fall-motion 0.5s linear infinite;
   opacity: 0.25;

@@ -15,7 +15,6 @@ const CustomTooltip = ({ active, payload, unit }) => {
 };
 
 export function HourlyForecast({ forecast, unit, getTemp }) {
-  // 8 entries = 24 hours (every 3h)
   const hourly = forecast.slice(0, 8);
 
   const chartData = hourly.map(item => ({

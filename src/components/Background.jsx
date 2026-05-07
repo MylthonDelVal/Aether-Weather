@@ -23,7 +23,6 @@ const SNOW_PARTICLES = Array.from({ length: 40 }, (_, i) => ({
 
 export function Background({ condition }) {
   const isFoggy  = condition === 'Niebla' || condition === 'Neblina';
-  // Lógica unificada para estados de lluvia
   const isRainy  = condition === 'Lluvia' || condition === 'Llovizna' || condition === 'Tormenta';
   const currentBg = BG_IMAGES[condition] || BG_IMAGES['default'];
 
@@ -62,7 +61,7 @@ export function Background({ condition }) {
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
             style={{ 
               opacity: 0.5, 
-              mixBlendMode: 'soft-light', // Corregido a camelCase
+              mixBlendMode: 'soft-light', 
               filter: 'contrast(1.2) saturate(1.3) brightness(1.1)' 
             }}
           >
@@ -124,8 +123,6 @@ export function Background({ condition }) {
         ))}
       </div>
 
-      {/* 3. TEXTURA FINAL Y EFECTOS DE POST-PROCESADO (Nivel z-20 y z-30) */}
-      
       {/* Film grain (Estética Indie Sleaze) */}
       <div className="absolute inset-0 z-20 opacity-[0.05] mix-blend-overlay pointer-events-none
         bg-[url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Grain_Noise.png')]" />

@@ -1,16 +1,86 @@
-# React + Vite
+#  Aether Weather — Atmosphere Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react)](https://react.dev/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-v4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
+[![Vitest](https://img.shields.io/badge/Tests-Vitest-6E9F18?style=flat&logo=vitest)](https://vitest.dev/)
 
-Currently, two official plugins are available:
+> Una experiencia climática inmersiva inspirada en la estética **Indie Sleaze / 35mm Film**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+##  Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Aether Weather** transforma la consulta del clima en una experiencia visual y atmosférica.  
+La aplicación utiliza fondos dinámicos en video que reaccionan en tiempo real a las condiciones climáticas actuales, creando una interfaz cinematográfica moderna y envolvente.
 
-## Expanding the ESLint configuration
+Diseñada como una **Progressive Web App (PWA)**, ofrece una experiencia rápida, fluida e instalable en dispositivos móviles.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+##  Features
+
+-  **Dynamic Atmosphere**
+  - Videos y fondos reactivos según el estado climático.
+  - Estética visual inspirada en fotografía analógica y cine 35mm.
+
+-  **PWA Ready**
+  - Instalable en móvil y escritorio.
+  - Soporte offline básico mediante Service Workers.
+
+-  **Unit Conversion**
+  - Conversión instantánea entre Celsius y Fahrenheit.
+  - Persistencia de estado utilizando Zustand.
+
+-  **Glassmorphism UI**
+  - Interfaz moderna con transparencias y blur effects.
+  - Diseño minimalista y responsive.
+
+-  **Optimized Performance**
+  - Videos optimizados (<3MB).
+  - Lazy loading y render eficiente con React 19 + Vite.
+
+---
+
+##  Tech Stack
+
+| Tecnología | Uso |
+|---|---|
+| React 19 | Frontend UI |
+| Vite | Build Tool |
+| Tailwind CSS v4 | Styling |
+| Zustand | State Management |
+| Vitest | Unit Testing |
+| React Testing Library | Component Testing |
+| Vite PWA Plugin | Progressive Web App |
+| OpenWeatherMap API | Datos climáticos |
+
+---
+
+##  Testing
+
+El proyecto incluye pruebas unitarias para garantizar estabilidad y calidad.
+
+### Covered Areas
+
+- ✅ Store testing
+- ✅ Unit conversion logic
+- ✅ Component rendering
+- ✅ Utility functions
+- ✅ Weather calculations
+
+### Run Tests
+
+```bash
+npm test
+```
+
+## 🛠️ Stack Tecnológico
+- **Frontend:** React 19, Tailwind CSS v4, Vite.
+- **State Management:** Zustand.
+- **Testing:** Vitest & React Testing Library.
+- **Offline:** Vite PWA Plugin (Progressive Web App).
+- **API:** OpenWeatherMap API.
+
+---
+**Desarrollado por [Mylthon Marlon](https://github.com/MylthonDelVal) — Durango, México. **

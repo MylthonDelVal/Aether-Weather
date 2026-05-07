@@ -14,7 +14,6 @@ export function SearchBar() {
     else clearSuggestions();
   }, [debouncedQuery]);
 
-  // Close on outside click
   useEffect(() => {
     const handler = (e) => {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
